@@ -1,0 +1,70 @@
+.rdd-container {
+    width: 80%;
+    height: 72vh;
+    margin-top: 1%;
+    background-color: white;
+    border-radius: 5px;
+    position: relative; /* For positioning the button */
+    overflow: auto;    /* Allows scrolling if content overflows */
+}
+
+.top-right-button {
+    position: absolute; /* Use absolute positioning */
+    top: 1%;           /* Adjusts from the top */
+    right: 1%;         /* Adjusts from the right */
+    height: 30px;      /* Set a specific height */
+    width: 50px;       /* Set a specific width */
+    border: none;      /* Remove default button border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #007bff; /* Button color */
+    color: white;      /* Button text color */
+    cursor: pointer;   /* Change cursor on hover */
+    text-align: center;
+}
+
+.top-right-button:hover {
+    background-color: #0056b3; /* Darker color on hover */
+}
+
+table {
+    width: 100%;        /* Make table full width */
+    border-collapse: collapse; /* Collapse borders */
+    margin-top: 40px;   /* Space above the table */
+}
+
+th, td {
+    padding: 10px;      /* Padding for table cells */
+    text-align: left;   /* Align text to the left */
+    border-bottom: 1px solid #ccc; /* Add bottom border */
+}
+
+th {
+    background-color: #f2f2f2; /* Header background color */
+}
+
+@media (max-width: 768px) {
+    th, td {
+        display: block; /* Stack cells on small screens */
+        width: 100%;    /* Full width for each cell */
+    }
+
+    th {
+        position: absolute; /* Position headers above cells */
+        top: -9999px;      /* Hide headers visually */
+    }
+
+    td {
+        text-align: right; /* Align text to the right */
+        position: relative; /* Position for pseudo-element */
+        padding-left: 50%; /* Space for label */
+    }
+
+    td::before {
+        content: attr(data-label); /* Use data-label for responsive labels */
+        position: absolute; /* Position it correctly */
+        left: 10px; /* Space from the left */
+        width: calc(50% - 20px); /* Adjust width */
+        white-space: nowrap; /* Prevent wrapping */
+        text-align: left; /* Align labels to the left */
+    }
+}

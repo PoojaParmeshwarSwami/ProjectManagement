@@ -1,0 +1,25 @@
+.leftdash-container {
+  height: 72vh;
+  width: 20%;
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  padding: 1%;
+}
+.leftdash-item {
+    height: 10%;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+.leftdash-item:hover {
+  background-color: #f4f3f7;
+  border-radius: 5px;
+}
+.leftdash-icons{
+margin-right: 5%;
+margin-left: 5%;
+}
