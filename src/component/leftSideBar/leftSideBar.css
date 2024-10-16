@@ -1,23 +1,28 @@
 .leftdash-container {
-  height: 72vh;
+  /* height: 72vh; */
   width: 20%;
-  background-color: white;
+  background-color:#1e293b;
   border-radius: 5px;
   margin-top: 1%;
   margin-bottom: 1%;
   padding: 1%;
+
 }
 .leftdash-item {
-    height: 10%;
+    /* height: 10%; */
+    height: 50px;
   font-size: 16px;
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: black;
+  color:#f1f5f9;
 }
 .leftdash-item:hover {
-  background-color: #f4f3f7;
-  border-radius: 5px;
+    color: #f1f5f9;
+    background: #334155;
+    border-radius: 5px;
+    transition: ease-in-out .2s;
+
 }
 .leftdash-icons{
 margin-right: 5%;

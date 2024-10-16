@@ -1,0 +1,51 @@
+.change-request-table {
+    margin: 20px auto;
+    width: 80%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+  }
+  
+  .change-request-table  table {
+    width: 100%;
+    /* border: 1px solid black; */
+  }
+  
+  .change-request-table th, td {
+    /* border: 1px solid black; */
+    padding: 10px;
+    text-align: left;
+  }
+  
+ 
+  
+  
+  .change-request-table td {
+    vertical-align: top;
+  }
+  .td_input{
+    height: 30px;
+    width: 50%;
+    font-size: medium;
+    border: none;
+    outline: none;
+   
+  }
+  .textarea_input{
+    margin: 10px;
+    width: 40%;
+
+    font-size: medium;
+    position: absolute;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    resize: none;
+  }
+  .sub_input{
+    height: 100%;
+    /* width: 100%; */
+    border: none;
+    outline: none;
+    box-shadow: none;
+    resize: none;
+  }

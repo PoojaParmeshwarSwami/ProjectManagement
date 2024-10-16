@@ -2,13 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
  }
 
   
-  html, body {
+  html{
     height: 100%;
     width: 100%;
-background: #48106B1A;
+/* background: #48106B1A; */
+background-color: #f1f5f9;
  
 
   }

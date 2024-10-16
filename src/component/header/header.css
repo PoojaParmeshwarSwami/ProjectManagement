@@ -7,9 +7,17 @@
 }
 
 .leftside-header {
-  border-radius: 5px;
+ 
   width: 20%;
-  background-color: white;
+
+
+}
+.leftside-header img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+   
+
 }
 .rightside-header {
   display: flex;

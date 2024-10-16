@@ -1,4 +1,4 @@
-.rdd-container {
+.ListOfBrd{
     width: 80%;
     height: 72vh;
     margin-top: 1%;
@@ -9,42 +9,20 @@
     margin-bottom: 1%;
 }
 
-.top-right-button {
-    position: absolute; 
-    top: 1%;           
-    right: 1%;        
-    height: 30px;      
-    width: 50px;      
-    border: none;     
-    border-radius: 5px; 
-    background-color: #007bff; 
-    color: white;    
-    cursor: pointer;   
-    text-align: center;
-}
-
-.top-right-button:hover {
-    background-color: #0056b3; 
-}
-
 table {
     width: 100%;      
     border-collapse: collapse; 
     margin-top: 40px; 
-    margin-left: 10px;
-    
 }
 
 th, td {
     padding: 10px;      
     text-align: left;   
     border-bottom: 1px solid #ccc;
-    width: 14%;
 }
 
 th {
     background-color: #f2f2f2; 
-    
 }
 
 @media (max-width: 768px) {

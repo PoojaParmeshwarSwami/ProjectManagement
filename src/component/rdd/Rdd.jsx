@@ -1,11 +1,18 @@
 import "../rdd/rdd.css";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../component/userContext/UserContext";
+import { useContext, useEffect } from "react";
 
 const Rdd = () => {
+  const { fetchData, data } = useContext(UserContext);
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+  console.log(data);
   return (
     <>
       <div className="rdd-container">
-        <Link > 
+        <Link to="/rddFormPage">
           <button className="top-right-button"> + </button>
         </Link>
         <table>
@@ -21,16 +28,17 @@ const Rdd = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td data-label="SR.No"></td>
-              <td data-label="Business Name"></td>
-              <td data-label="Business Nature"></td>
-              <td data-label="ADD By"></td>
-              <td data-label="Date"></td>
-              <td data-label="Edit"></td>
-              <td data-label="Download"></td>
-            </tr>
-          
+            {data.map((item, ind) => (
+              <tr key={ind}>
+                <td data-label="SR.No">{ind + 1}</td>
+                <td data-label="Business Name">{item.businessName}</td>
+                <td data-label="Business Nature">{item.businessNature}</td>
+                <td data-label="ADD By"></td>
+                <td data-label="Date"></td>
+                <td data-label="Edit"></td>
+                <td data-label="Download"></td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

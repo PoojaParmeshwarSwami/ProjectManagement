@@ -1,0 +1,100 @@
+.rddForm-container {
+    width: 70%; 
+    /* max-width: 800px;  */
+    height: auto; 
+    margin: 1% auto;
+   
+    border-radius: 5px;
+    position: relative;
+    overflow: auto;
+    padding: 20px;
+ 
+}
+
+.rddForm-container h2 {
+    margin-top: 0; 
+    font-size: 1.5em; 
+    text-align: center;
+}
+
+.page-layout {
+    border: 1px solid #d5dbe4;
+    width: 100%;
+    background-color: white;
+    height: auto; 
+    text-align: left;
+    margin: 0; 
+    padding: 20px; 
+    border-radius: 5px;
+}
+
+.table-container {
+    /* width: 100%;  */
+ 
+}
+
+.table-container table {
+    width: 100%; 
+    border-collapse: collapse; 
+}
+
+.table-container td {
+    padding: 10px;
+    font-weight: bold;
+    font-size: 16px; 
+}
+
+.table-container input,
+.table-container textarea {
+    width: calc(100% - 20px); 
+    padding: 10px; 
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 300px;
+    
+    
+}
+
+.table-container textarea {
+    resize: vertical; 
+}
+
+.submit-button {
+    height: 40px;
+    width: 70%; 
+    color: white;
+    background-color: #567dec;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-top: 20px; 
+    cursor: pointer; 
+    margin-left: 70px;
+  
+}
+.table-container input
+{
+    outline-color: #1371e1;
+
+}
+.table-container textarea {
+    outline-color: #1371e1;
+}
+
+
+@media (max-width: 768px) {
+    .table-container td {
+        font-size: 14px;
+    }
+
+    .submit-button {
+        width: 100%;
+    }
+    .table-container input,
+.table-container textarea {
+    width: 100%;
+}
+}
+
+

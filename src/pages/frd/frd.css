@@ -1,0 +1,14 @@
+.frd-top-right-button {
+    position: absolute; 
+    top: 2%;           
+    right: 1%;        
+    height: 30px;      
+    width: 100px;      
+    border: none;     
+    border-radius: 5px; 
+    background-color: #007bff; 
+    color: white;    
+    cursor: pointer;   
+   text-decoration: none;
+   padding-top: 5px;
+}
