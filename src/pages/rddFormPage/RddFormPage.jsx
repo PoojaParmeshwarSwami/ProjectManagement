@@ -3,7 +3,8 @@ import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import axios from "axios";
 import "../rddFormPage/rddFormPage.css";
-
+import "jspdf-autotable";
+import logo from "/src/assets/microdynamicLogo.png";
 const RddFormPage = () => {
  
   const [formData, setFormData] = useState({
@@ -48,36 +49,63 @@ const RddFormPage = () => {
       }
     } catch (error) {
       console.error("Error during save:", error);
-      alert("Error saving data");
+      alert(error);
     }
   };
 
-  
   const generatePDF = () => {
-    const input = document.querySelector(".rddForm-container");
-    html2canvas(input).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF("p", "mm", "a4");
-      const imgWidth = 210;
-      const pageHeight = 297;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      let heightLeft = imgHeight;
-      let position = 0;
+    const doc = new jsPDF();
 
-      pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
-      heightLeft -= pageHeight;
+    const imgData = "/src/assets/microdynamicLogo.png"; // Replace this with your base64 image string
+    const imgWidth = 80; // Set the width for your image
+    const imgHeight = 14 // Maintain aspect ratio (example for a 16:9 image)
+  
+    // Add the image at (x: 20, y: 10)
+    doc.addImage(imgData, 'JPEG', 62, 2, imgWidth, imgHeight);
+  
 
-      while (heightLeft >= 0) {
-        position = heightLeft - imgHeight;
-        pdf.addPage();
-        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
-      }
+    // Set title
+    doc.setFontSize(28);
+    doc.text("Requirement for Design UI of Project", 20,25);
+    doc.setFontSize(12);
 
-      pdf.save("form_data.pdf");
+    // Create a table
+    const tableData = [
+      { field: "Business Nature: ", details: formData.businessNature || "N/A" },
+      { field: "Business Name: ", details: formData.businessName || "N/A" },
+      { field: "Categories List: ", details: formData.categoriesList || "N/A" },
+      { field: "Product samples: ", details: formData.productSamples || "N/A" },
+      { field: "Video if any: ", details: formData.video || "N/A" },
+      { field: "Logo if yes share, if no share idea: ", details: formData.logo || "N/A" },
+      { field: "Color specific if any: ", details: formData.color || "N/A" },
+      { field: "Competitor Link: ", details: formData.competitorLink || "N/A" },
+      { field: " Font style suggestions if any: ", details: formData.fontStyle || "N/A" },
+      { field: "Website format or any layout suggestion: ", details: formData.websiteFormat || "N/A" },
+      { field: "Business Description: ", details: formData.businessDescription || "N/A" },
+      { field: "USP if any: ", details: formData.usp || "N/A" },
+      { field: "Any other suggestions: ", details: formData.suggestions || "N/A" },
+      // Add more fields as needed...
+    ];
+
+    // Define column widths (in mm)
+    const columnWidths = [52.83, 120.75]; // Approx. 200px for each column
+
+    // Use autoTable to create the table
+    doc.autoTable({
+      head: [["Field", "Details"]],
+      body: tableData.map(item => [item.field, item.details]),
+      startY: 30, // Starting Y position
+      styles: { cellWidth: 'fixed' }, // Use fixed width for cells
+      columnStyles: {
+        0: { cellWidth: columnWidths[0],fontSize: 14, fontStyle: "bold", fontFamily:"Arial",textColor: [0, 0, 0]}, // Width for "Field"
+        1: { cellWidth: columnWidths[1],fontSize: 14 ,textColor: [7, 8, 8]}, // Width for "Details"
+      },
+      margin: { top: 10 },
     });
-  };
 
+    // Save the PDF
+    doc.save("formData.pdf");
+  };
   return (
     <div className="rddForm-container">
       <div className="page-layout">
@@ -228,8 +256,8 @@ const RddFormPage = () => {
           <button
             className="submit-button"
             onClick={() => {
-                handleSave(); 
-              generatePDF(); 
+             handleSave(); 
+             // generatePDF(); 
               
             }}
           >
