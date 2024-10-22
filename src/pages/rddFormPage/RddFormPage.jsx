@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import jsPDF from "jspdf";
-import html2canvas from "html2canvas";
 import axios from "axios";
 import "../rddFormPage/rddFormPage.css";
 import "jspdf-autotable";
-import logo from "/src/assets/microdynamicLogo.png";
 const RddFormPage = () => {
- 
   const [formData, setFormData] = useState({
     businessNature: "",
     businessName: "",
@@ -20,25 +17,22 @@ const RddFormPage = () => {
     websiteFormat: "",
     businessDescription: "",
     usp: "",
-    suggestions: ""
+    suggestions: "",
   });
-
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
- 
   const handleSave = async () => {
     try {
-      
       const response = await axios.post(
-        "http://192.168.31.117:8085/api/add",  
-        formData  
+        "http://192.168.31.117:8085/api/add",
+        formData
       );
 
       if (response.status === 200) {
@@ -58,15 +52,14 @@ const RddFormPage = () => {
 
     const imgData = "/src/assets/microdynamicLogo.png"; // Replace this with your base64 image string
     const imgWidth = 80; // Set the width for your image
-    const imgHeight = 14 // Maintain aspect ratio (example for a 16:9 image)
-  
+    const imgHeight = 14; // Maintain aspect ratio (example for a 16:9 image)
+
     // Add the image at (x: 20, y: 10)
-    doc.addImage(imgData, 'JPEG', 62, 2, imgWidth, imgHeight);
-  
+    doc.addImage(imgData, "JPEG", 62, 2, imgWidth, imgHeight);
 
     // Set title
     doc.setFontSize(28);
-    doc.text("Requirement for Design UI of Project", 20,25);
+    doc.text("Requirement for Design UI of Project", 20, 25);
     doc.setFontSize(12);
 
     // Create a table
@@ -76,14 +69,29 @@ const RddFormPage = () => {
       { field: "Categories List: ", details: formData.categoriesList || "N/A" },
       { field: "Product samples: ", details: formData.productSamples || "N/A" },
       { field: "Video if any: ", details: formData.video || "N/A" },
-      { field: "Logo if yes share, if no share idea: ", details: formData.logo || "N/A" },
+      {
+        field: "Logo if yes share, if no share idea: ",
+        details: formData.logo || "N/A",
+      },
       { field: "Color specific if any: ", details: formData.color || "N/A" },
       { field: "Competitor Link: ", details: formData.competitorLink || "N/A" },
-      { field: " Font style suggestions if any: ", details: formData.fontStyle || "N/A" },
-      { field: "Website format or any layout suggestion: ", details: formData.websiteFormat || "N/A" },
-      { field: "Business Description: ", details: formData.businessDescription || "N/A" },
+      {
+        field: " Font style suggestions if any: ",
+        details: formData.fontStyle || "N/A",
+      },
+      {
+        field: "Website format or any layout suggestion: ",
+        details: formData.websiteFormat || "N/A",
+      },
+      {
+        field: "Business Description: ",
+        details: formData.businessDescription || "N/A",
+      },
       { field: "USP if any: ", details: formData.usp || "N/A" },
-      { field: "Any other suggestions: ", details: formData.suggestions || "N/A" },
+      {
+        field: "Any other suggestions: ",
+        details: formData.suggestions || "N/A",
+      },
       // Add more fields as needed...
     ];
 
@@ -93,12 +101,18 @@ const RddFormPage = () => {
     // Use autoTable to create the table
     doc.autoTable({
       head: [["Field", "Details"]],
-      body: tableData.map(item => [item.field, item.details]),
+      body: tableData.map((item) => [item.field, item.details]),
       startY: 30, // Starting Y position
-      styles: { cellWidth: 'fixed' }, // Use fixed width for cells
+      styles: { cellWidth: "fixed" }, // Use fixed width for cells
       columnStyles: {
-        0: { cellWidth: columnWidths[0],fontSize: 14, fontStyle: "bold", fontFamily:"Arial",textColor: [0, 0, 0]}, // Width for "Field"
-        1: { cellWidth: columnWidths[1],fontSize: 14 ,textColor: [7, 8, 8]}, // Width for "Details"
+        0: {
+          cellWidth: columnWidths[0],
+          fontSize: 14,
+          fontStyle: "bold",
+          fontFamily: "Arial",
+          textColor: [0, 0, 0],
+        }, // Width for "Field"
+        1: { cellWidth: columnWidths[1], fontSize: 14, textColor: [7, 8, 8] }, // Width for "Details"
       },
       margin: { top: 10 },
     });
@@ -109,7 +123,10 @@ const RddFormPage = () => {
   return (
     <div className="rddForm-container">
       <div className="page-layout">
-        <h2>Requirement for Design UI of Project for Website / App Design / Software Development:</h2>
+        <h2>
+          Requirement for Design UI of Project for Website / App Design /
+          Software Development:
+        </h2>
         <div className="table-container">
           <table>
             <tbody>
@@ -256,9 +273,8 @@ const RddFormPage = () => {
           <button
             className="submit-button"
             onClick={() => {
-             handleSave(); 
-             // generatePDF(); 
-              
+              handleSave();
+              // generatePDF();
             }}
           >
             Submit & Download PDF

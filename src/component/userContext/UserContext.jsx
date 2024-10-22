@@ -6,6 +6,7 @@ export const UserProvider = ({ children }) => {
 
     const [data,setData] =useState([]);
     const [brdList,setBrdList] = useState([]);
+    const [frdList,setFrdList]= useState([]);
     const [crList,setCrlist] = useState([]);
     const fetchData = async()=>{
         try{
@@ -20,9 +21,22 @@ export const UserProvider = ({ children }) => {
         }
     }
 
-    const fetchBrdList = async()=>{
+    const fetchfrdList = async()=>{
         try{
-            const response = await axios.get("http://192.168.31.117:8085/api/list");
+            const response = await axios.get("http://192.168.31.117:8087/api/list");
+
+            if(response){
+                setFrdList(response.data);
+            }
+
+        }catch(error){
+
+        }
+    };
+
+    const fetchBrdiLst = async()=>{
+        try{
+            const response = await axios.get("http://192.168.31.117:8086/api/list");
 
             if(response){
                 setBrdList(response.data);
@@ -48,7 +62,10 @@ export const UserProvider = ({ children }) => {
 
   return (
     <>
-      <UserContext.Provider value={{data,setData,fetchData,fetchCRList,crList,setCrlist}}>{children}</UserContext.Provider>
+      <UserContext.Provider value={{data,setData,fetchData,fetchCRList,crList,setCrlist,fetchBrdiLst,
+        brdList,setBrdList,fetchfrdList,frdList,setFrdList}}>
+        {children}
+        </UserContext.Provider>
     </>
   );
 };

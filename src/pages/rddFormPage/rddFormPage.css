@@ -28,10 +28,7 @@
     border-radius: 5px;
 }
 
-.table-container {
-    /* width: 100%;  */
- 
-}
+
 
 .table-container table {
     width: 100%; 
@@ -50,7 +47,7 @@
     padding: 10px; 
     border-radius: 5px;
     border: 1px solid #ccc;
-    width: 300px;
+    width: 200px;
     
     
 }

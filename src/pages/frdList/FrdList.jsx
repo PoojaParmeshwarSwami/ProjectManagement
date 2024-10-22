@@ -1,8 +1,10 @@
-
+import { UserContext } from "../../component/userContext/UserContext";
+import { useContext } from "react";
 const FrdList = () => {
+    const {fetchfrdList ,frdList} = useContext(UserContext);
   return (
     <>
-      <div className="ListOfBrd">
+      <div className="">
         <table>
           <thead>
             <tr>
@@ -15,6 +17,7 @@ const FrdList = () => {
             </tr>
           </thead>
           <tbody>
+            {frdList. map((item, ind)=>(
             <tr>
               <td data-label="Project Name"></td>
               <td data-label="Client Name"></td>
@@ -23,6 +26,7 @@ const FrdList = () => {
               <td data-label="Edit"></td>
               <td data-label="Download"></td>
             </tr>
+            ))}
           </tbody>
         </table>
       </div>
