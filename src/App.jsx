@@ -13,6 +13,7 @@ import Frd from "./pages/frd/Frd";
 import FrdList from "./pages/frdList/FrdList";
 import { UserProvider } from "./component/userContext/UserContext";
 import FrdFormPage from "./pages/frdFormPage/FrdFormPage";
+import RddEditData from "./pages/rddEditData/RddEditData";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route index element={<DashBoard/>}/>
         <Route path="/rdd" element={<Rdd/>}/>
         <Route path="/rddFormPage" element={<RddFormPage/>}/>
+        <Route path="/rddEditData" element={<RddEditData/>}/>
         <Route path="brd" element={<Brd/>}/>
         <Route path="/brdFormPage" element={<BrdFormPage/>}/>
         <Route path="/frdFormPage" element={<FrdFormPage/>}/>
