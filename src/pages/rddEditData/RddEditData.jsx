@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import jsPDF from "jspdf";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams,useNavigate  } from "react-router-dom";
 import axios from "axios";
 import "../rddFormPage/rddFormPage.css";
 import "jspdf-autotable";
@@ -59,6 +59,7 @@ const navigate = useNavigate();
       if (response.status === 200) {
         console.log("Data saved successfully:", response.data);
         alert("Form data saved successfully");
+        navigate("/rdd");
       } else {
         console.log("Error while saving data", response);
       }

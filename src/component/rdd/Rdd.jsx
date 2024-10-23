@@ -111,7 +111,13 @@ const Rdd = () => {
                 <td data-label="Date">{item.createddate}</td>
                 <td data-label="Edit"><Link to={`/rddEditData/${item.id}`}>Edit</Link></td>
                 
-                <td data-label="Download"><button onClick={(()=>{generatePDF(item)})}>Download</button></td>
+                <td data-label="Download"><button style={{ height: "30px",
+    width:"80px",
+    color: "white",
+    backgroundColor: "#567dec",
+    border: "none",
+    fontWeight: "500",
+    fontSize: "14px",borderRadius:'5px'}} onClick={(()=>{generatePDF(item)})}>Download</button></td>
               </tr>
             ))}
           </tbody>
