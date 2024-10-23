@@ -34,9 +34,9 @@ const Rdd = () => {
                 <td data-label="Business Name">{item.businessName}</td>
                 <td data-label="Business Nature">{item.businessNature}</td>
                 <td data-label="ADD By"></td>
-                <td data-label="Date"></td>
-                <td data-label="Edit"></td>
-                <td data-label="Download"></td>
+                <td data-label="Date">{item.createddate}</td>
+                <td data-label="Edit"><Link>Edit</Link></td>
+                <td data-label="Download"><Link>Download</Link></td>
               </tr>
             ))}
           </tbody>

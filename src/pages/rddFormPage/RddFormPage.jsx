@@ -51,8 +51,8 @@ const RddFormPage = () => {
     const doc = new jsPDF();
 
     const imgData = "/src/assets/microdynamicLogo.png"; // Replace this with your base64 image string
-    const imgWidth = 80; // Set the width for your image
-    const imgHeight = 14; // Maintain aspect ratio (example for a 16:9 image)
+    const imgWidth = 50; // Set the width for your image
+    const imgHeight = 18; // Maintain aspect ratio (example for a 16:9 image)
 
     // Add the image at (x: 20, y: 10)
     doc.addImage(imgData, "JPEG", 62, 2, imgWidth, imgHeight);
@@ -60,7 +60,7 @@ const RddFormPage = () => {
     // Set title
     doc.setFontSize(28);
     doc.text("Requirement for Design UI of Project", 20, 25);
-    doc.setFontSize(12);
+    doc.setFontSize(10);
 
     // Create a table
     const tableData = [
@@ -274,7 +274,7 @@ const RddFormPage = () => {
             className="submit-button"
             onClick={() => {
               handleSave();
-              // generatePDF();
+            generatePDF();
             }}
           >
             Submit & Download PDF

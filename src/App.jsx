@@ -12,6 +12,7 @@ import Nda from "./pages/nda/Nda";
 import Frd from "./pages/frd/Frd";
 import FrdList from "./pages/frdList/FrdList";
 import { UserProvider } from "./component/userContext/UserContext";
+import FrdFormPage from "./pages/frdFormPage/FrdFormPage";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/rddFormPage" element={<RddFormPage/>}/>
         <Route path="brd" element={<Brd/>}/>
         <Route path="/brdFormPage" element={<BrdFormPage/>}/>
+        <Route path="/frdFormPage" element={<FrdFormPage/>}/>
         <Route path="/brdList" element= {<ListOfBrd/>}/>
         <Route path="/crForm" element ={<CRForm/>}/>
         <Route path="/cr" element ={<Cr/>}/>

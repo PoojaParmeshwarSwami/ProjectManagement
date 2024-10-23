@@ -1,0 +1,43 @@
+.frdList{
+    width: 80%;
+    height: 72vh;
+    margin-top: 1%;
+    background-color: white;
+    border-radius: 5px;
+    position: relative;
+    overflow: auto;    
+    margin-bottom: 1%;
+}
+.frdList th:first-child, td:first-child {
+    width: 200px;
+  }
+  .frdList th:not(:first-child), td:not(:first-child) {
+    width: 100px;
+  }
+@media (max-width: 768px) {
+    th, td {
+        display: block;
+        width: 100%;   
+    }
+
+    th {
+        position: absolute; 
+        top: -9999px;      
+        
+    }
+
+    td {
+        text-align: right; 
+        position: relative; 
+        padding-left: 50%; 
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute; 
+        left: 10px; 
+        width: calc(50% - 20px); 
+        white-space: nowrap; 
+        text-align: left; 
+    }
+}

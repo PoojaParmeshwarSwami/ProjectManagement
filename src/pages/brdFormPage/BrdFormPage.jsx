@@ -1,18 +1,22 @@
 import { useState } from "react";
 import "../brdFormPage/brdFormPage.css";
 import axios from "axios";
+import { UserContext } from "../../component/userContext/UserContext";
+import { useContext } from "react";
 const BrdFormPage = () => {
+  const { brdId } = useContext(UserContext);
   const [brdData, setBrdData] = useState({
     fullname: "",
     mobile: "",
     email: "",
     amount: "",
     timeline: "",
-    projectid: 7,
+    pid: brdId,
   });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+
     setBrdData({ ...brdData, [name]: value });
   };
 

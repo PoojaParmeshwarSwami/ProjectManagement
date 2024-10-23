@@ -4,11 +4,11 @@ import { useContext, useEffect } from "react";
 
 const ListOfBrd = () => {
 
-    const { fetchBrdiLst,brdList } = useContext(UserContext);
+    const { fetchBrdiLst,brdList,brdId } = useContext(UserContext);
     useEffect(() => {
         fetchBrdiLst();
     }, [fetchBrdiLst]);
-    console.log(brdList);
+    console.log("brdList ====",brdList);
   return (
     <>
       <div className="ListOfBrd">

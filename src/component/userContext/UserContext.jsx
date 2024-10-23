@@ -3,7 +3,7 @@ import axios from "axios";
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-
+    const [brdId,setBrdId] = useState("");
     const [data,setData] =useState([]);
     const [brdList,setBrdList] = useState([]);
     const [frdList,setFrdList]= useState([]);
@@ -63,7 +63,7 @@ export const UserProvider = ({ children }) => {
   return (
     <>
       <UserContext.Provider value={{data,setData,fetchData,fetchCRList,crList,setCrlist,fetchBrdiLst,
-        brdList,setBrdList,fetchfrdList,frdList,setFrdList}}>
+        brdList,setBrdList,fetchfrdList,frdList,setFrdList,brdId,setBrdId}}>
         {children}
         </UserContext.Provider>
     </>

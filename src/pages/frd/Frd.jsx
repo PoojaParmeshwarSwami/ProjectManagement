@@ -14,7 +14,7 @@ const Frd = () => {
         </div>
 
         <div className="brd-text-container">
-          <Link  to="/brdFormPage" style={{textDecorationLine:"none"}}>
+          <Link  to="/frdFormPage" style={{textDecorationLine:"none"}}>
             <div className="text-icon-container">
               <TbSquareRoundedArrowRightFilled
                 style={{ height: "30px", width: "30px" }}

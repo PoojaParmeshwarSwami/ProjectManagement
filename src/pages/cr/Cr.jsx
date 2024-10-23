@@ -34,7 +34,7 @@ const Cr = () => {
               <td data-label="Module Name">{item.moduleName}</td>
               <td data-label="ADD By"> </td>
               <td data-label="Date"></td>
-              <td data-label="Edit"></td>
+              <td data-label="Edit"><Link >Edit</Link></td>
               <td data-label="Download"></td>
             </tr>
                ))}

@@ -1,10 +1,11 @@
 import { UserContext } from "../../component/userContext/UserContext";
+import "../frdList/frdList.css"
 import { useContext } from "react";
 const FrdList = () => {
     const {fetchfrdList ,frdList} = useContext(UserContext);
   return (
     <>
-      <div className="">
+      <div className="frdList">
         <table>
           <thead>
             <tr>
