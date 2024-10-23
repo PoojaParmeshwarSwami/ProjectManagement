@@ -109,7 +109,8 @@ const Rdd = () => {
                 <td data-label="Business Nature">{item.businessNature}</td>
                 <td data-label="ADD By"></td>
                 <td data-label="Date">{item.createddate}</td>
-                <td data-label="Edit"><Link>Edit</Link></td>
+                <td data-label="Edit"><Link to={`/rddEditData/${item.id}`}>Edit</Link></td>
+                
                 <td data-label="Download"><button onClick={(()=>{generatePDF(item)})}>Download</button></td>
               </tr>
             ))}
