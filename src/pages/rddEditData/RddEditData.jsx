@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import jsPDF from "jspdf";
-import { useParams, useNavigate } from "react-router-dom"; // Added useNavigate
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import "jspdf-autotable";
 import "../rddFormPage/rddFormPage.css";
-
+import "jspdf-autotable";
 const RddEditData = () => {
-  const { id } = useParams();
-  const navigate = useNavigate(); // Added navigate for redirection after save
+    const { id } = useParams();
+const navigate = useNavigate(); 
   const [formData, setFormData] = useState({
     businessNature: "",
     businessName: "",
@@ -25,9 +24,12 @@ const RddEditData = () => {
   });
 
   useEffect(() => {
+    
     const fetchItemData = async () => {
       try {
-        const response = await axios.get(`http://192.168.31.117:8085/api/get/${id}`);
+        const response = await axios.get(
+          `http://192.168.31.117:8085/api/get/${id}`
+        );
         setFormData(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -35,16 +37,16 @@ const RddEditData = () => {
     };
 
     if (id) {
-      fetchItemData();
+      fetchItemData(); 
     }
   }, [id]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormData((prevData) => ({
-      ...prevData,
+    setFormData({
+      ...formData,
       [name]: value,
-    }));
+    });
   };
 
   const handleSave = async () => {
@@ -55,10 +57,10 @@ const RddEditData = () => {
       );
 
       if (response.status === 200) {
+        console.log("Data saved successfully:", response.data);
         alert("Form data saved successfully");
-        navigate("/rdd"); // Redirects user back to the main page after saving
       } else {
-        alert("Error while saving data");
+        console.log("Error while saving data", response);
       }
     } catch (error) {
       console.error("Error during save:", error);
@@ -68,9 +70,11 @@ const RddEditData = () => {
 
   const generatePDF = () => {
     const doc = new jsPDF();
+
     const imgData = "/src/assets/microdynamicLogo.png";
     const imgWidth = 50;
     const imgHeight = 18;
+
     doc.addImage(imgData, "JPEG", 62, 2, imgWidth, imgHeight);
 
     doc.setFontSize(28);
@@ -83,17 +87,33 @@ const RddEditData = () => {
       { field: "Categories List: ", details: formData.categoriesList || "N/A" },
       { field: "Product samples: ", details: formData.productSamples || "N/A" },
       { field: "Video if any: ", details: formData.video || "N/A" },
-      { field: "Logo if yes share, if no share idea: ", details: formData.logo || "N/A" },
+      {
+        field: "Logo if yes share, if no share idea: ",
+        details: formData.logo || "N/A",
+      },
       { field: "Color specific if any: ", details: formData.color || "N/A" },
       { field: "Competitor Link: ", details: formData.competitorLink || "N/A" },
-      { field: "Font style suggestions if any: ", details: formData.fontStyle || "N/A" },
-      { field: "Website format or any layout suggestion: ", details: formData.websiteFormat || "N/A" },
-      { field: "Business Description: ", details: formData.businessDescription || "N/A" },
+      {
+        field: " Font style suggestions if any: ",
+        details: formData.fontStyle || "N/A",
+      },
+      {
+        field: "Website format or any layout suggestion: ",
+        details: formData.websiteFormat || "N/A",
+      },
+      {
+        field: "Business Description: ",
+        details: formData.businessDescription || "N/A",
+      },
       { field: "USP if any: ", details: formData.usp || "N/A" },
-      { field: "Any other suggestions: ", details: formData.suggestions || "N/A" },
+      {
+        field: "Any other suggestions: ",
+        details: formData.suggestions || "N/A",
+      },
     ];
 
     const columnWidths = [52.83, 120.75];
+
     doc.autoTable({
       head: [["Field", "Details"]],
       body: tableData.map((item) => [item.field, item.details]),
@@ -114,11 +134,13 @@ const RddEditData = () => {
 
     doc.save("formData.pdf");
   };
-
   return (
     <div className="rddForm-container">
       <div className="page-layout">
-        <h2>Requirement for Design UI of Project for Website / App Design / Software Development:</h2>
+        <h2>
+          Requirement for Design UI of Project for Website / App Design /
+          Software Development:
+        </h2>
         <div className="table-container">
           <table>
             <tbody>
@@ -263,19 +285,13 @@ const RddEditData = () => {
           </table>
 
           <button
-            className="pdf-btn"
-            onClick={generatePDF}
-            style={{ margin: "10px" }}
+            className="submit-button"
+            onClick={() => {
+              handleSave();
+              generatePDF();
+            }}
           >
-            Download PDF
-          </button>
-
-          <button
-            className="save-btn"
-            onClick={handleSave}
-            style={{ margin: "10px" }}
-          >
-            Save Changes
+            Submit & Download PDF
           </button>
         </div>
       </div>
